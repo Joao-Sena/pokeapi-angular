@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --primary-color:#ffb000;
+    --secondary-color:#e09900;
+    --success-color:#27b161;
+    --danger-color:#f53d65;
+    --black-color:#161616;
+    --dark-color:#2c2c2c;
+    --gray-color:#616161;
+    --white-color:#fff;
+    --light-color:#fafafa;
+  }
+
+html, body { height: 100%; }
+body { font-family: Roboto, "Helvetica Neue", sans-serif; background: #fafafa; }
+
+.titulo{ color: var(--dark-color); font-weight: 400; font-size: 34px; text-align: left; margin-bottom: 20px; opacity: 0; animation: 1s fade linear forwards; transition: 1s all; }
+
+.titulo::after{
+  content: '';
+  display: block;
+  height: 3px;
+  width: 110px;
+  background: var(--primary-color);
+  margin-top: 8px;
+}
+
+@keyframes fade{
+  0%{ opacity: 0; }
+  50%{ opacity: 0.5; }
+  100%{ opacity: 1; }
+}
+
+.anima-esquerda{ margin-left: -40px; opacity: 0; transition: 1s all; animation: 1s anima-esquerda linear forwards; animation-delay: 0.5s; }
+
+.anima-direita{ margin-left: 40px; opacity: 0; transition: 1s all; animation: 1s anima-direita linear forwards; animation-delay: 0.5s; }
+
+@keyframes anima-esquerda{
+    0%{ margin-left: -40px; opacity: 0; }
+    50%{ margin-left: -20px; opacity: 0.5; }
+    100%{ margin-left: 0px; opacity: 1; }
+}
+
+@keyframes anima-direita{
+    0%{  margin-left: 40px; opacity: 0; }
+    50%{  margin-left: 20px; opacity: 0.5; }
+    100%{  margin-left: 0px; opacity: 1; }
+}

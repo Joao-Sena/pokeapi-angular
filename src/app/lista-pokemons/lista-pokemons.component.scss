@@ -1,0 +1,26 @@
+.card-lista{
+    background: var(--white-color);
+    padding: 12px;
+    box-shadow: 0px 0px 5px 1px #0a0a0a27;
+    border-radius: 4px;
+    border-left: 3px solid var(--primary-color);
+    margin: 0;
+    width: 100%;
+    transition: 0.7s all;
+}
+
+.card-lista:hover{ 
+    box-shadow: 0px 0px 12px 1px #0a0a0a5d; 
+    transform: scale(1.025); 
+    img{ animation: pulsar 3s linear infinite; } 
+}
+
+@keyframes pulsar {
+    0%{ transform: scale(1); }
+    50%{ transform: scale(1.16)  }
+    100%{ transform: scale(1); }
+}
+
+.inf-api{ color: var(--gray-color); font-size: 14px; font-weight: 300; }
+
+.informacoes-pokemons{ h4{ color: var(--secondary-color); } }

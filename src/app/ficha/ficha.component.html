@@ -1,0 +1,101 @@
+<section>
+    <!-- INÍCIO HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-10 p-0">
+                    <h4>Pokemon Database (Pokedex)</h4>
+                          <input class="w-50 w-md-75" type="text" placeholder="Select a Pokemon" id="pokemonEscolhido" list="listaNomes" (keyup.enter)="validaInputVazio()">
+                          <datalist id="listaNomes">
+                              <div *ngFor="let item of listaPokemons">
+                                  <option [value]="item.name"></option>
+                              </div>
+                          </datalist>
+                          <button type="button" class="botao ml-1 ml-sm-3" (click)="validaInputVazio()">Search Pokemon</button>
+                          <small id="erroPokemon" class="form-text text-danger d-none">Digite algum nome de pokemon</small>
+                </div>
+                <div class="d-none d-md-block col-md-2 text-right">
+                    <img src="../../assets/img/logo.png" alt="" height="85px" routerLink="/home" class="logo">
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- COMEÇO DA FICHA TÉCNICA -->
+    <div class="container py-4">
+        <h3 class="titulo">Conheça a ficha técnica do Pokemon</h3>
+        <div class="row" *ngIf="fichaPokemon" id="fichaPokemonExiste">
+                <div class="col-12 col-sm-5 col-md-4 col-lg-3 {{fichaPokemon.types[0].type.name}}">
+                    <div class="card-lateral anima-esquerda text-center borda-{{fichaPokemon.types[0].type.name}}">
+                        <div *ngIf="fichaPokemon.sprites.front_default; else semImagem">
+                            <img [src]="fichaPokemon.sprites.front_default" alt="" class="img-pokemon">
+                        </div>
+                        <ng-template #semImagem>
+                            <img src="../../assets/img/logo.png" width="96px" alt="">
+                        </ng-template>
+                        <h5 class="ficha-nome">{{fichaPokemon.name}}</h5>
+                        <hr class="hr">
+                        <div class="ficha-inf text-left">
+                            <h5>Peso:  <span class="inf-api">{{fichaPokemon.weight}}</span></h5>
+                            <h5>Altura:  <span class="inf-api">{{fichaPokemon.height}} dm</span></h5>
+                            <h5>Tipo:  <span class="inf-api">{{fichaPokemon.types[0].type.name}}</span></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-7 col-md-8 col-lg-9 my-3 my-sm-0">
+                <div class="card-accordions anima-direita">
+                    <!-- ITEMS ACCORDIONS -->
+                        <div class="botao-accordion" (click)="escondeExibeItem('moves')">
+                            + MOVES
+                            <div class="div-accordion ficha-inf d-none" id="moves">
+                                <hr class="hr">
+                                <div *ngFor="let move of fichaPokemon.moves; index as i">
+                                    <h5>Move {{i+1}}: <span class="inf-api">{{ move.move.name }}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botao-accordion" (click)="escondeExibeItem('abilities')">
+                            + ABILITIES
+                            <div class="div-accordion ficha-inf d-none" id="abilities">
+                                <hr class="hr">
+                                <div *ngFor="let abilitie of fichaPokemon.abilities; index as i">
+                                    <h5>Abilitie {{i+1}}: <span class="inf-api">{{ abilitie.ability.name }}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botao-accordion" (click)="escondeExibeItem('stats')">
+                            + STATS
+                            <div class="div-accordion ficha-inf d-none" id="stats">
+                                <hr class="hr">
+                                <div *ngFor="let stat of fichaPokemon.stats">
+                                    <h5>{{stat.stat.name}}: <span class="inf-api">{{ stat.base_stat }}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botao-accordion" *ngIf="fichaPokemon.held_items.length" (click)="escondeExibeItem('heldItems')">
+                            + HELD ITEMS
+                            <div class="div-accordion ficha-inf d-none" id="heldItems">
+                                <hr class="hr">
+                                <div *ngFor="let item of fichaPokemon.held_items; index as i">
+                                    <h5>Heald Item {{i+1}}: <span class="inf-api">{{ item.item.name }}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botao-accordion" *ngIf="!fichaPokemon.held_items.length">
+                            Este pokemon não possui Held Items.
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="row" *ngIf="!fichaPokemon" id="fichaPokemonNaoExiste">
+            <div class="card p-3 col-12">
+                <h4 class="h3 text-danger"> <span class="icon-erro">&#9762;</span> ERRO 404! <span class="icon-erro">&#9762;</span> </h4>
+                <h6 class="h5 text-muted">Pokemon não encontrado. Por favor verifique se o nome está correto.</h6>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="botao-home d-block d-md-none text-center" routerLink="/home"><img src="../../assets/img/home.svg" width="30px;" alt=""></div>
+
+<app-footer></app-footer>
