@@ -29,7 +29,7 @@
 <!-- COMEÇO DA FICHA TÉCNICA -->
     <div class="container py-4">
         <h3 class="titulo">Conheça a ficha técnica do Pokemon</h3>
-        <div class="row" *ngIf="fichaPokemon" id="fichaPokemonExiste">
+        <div class="row" *ngIf="fichaPokemon && fichaPokemon != 'erro'" id="fichaPokemonExiste">
                 <div class="col-12 col-sm-5 col-md-4 col-lg-3 {{fichaPokemon.types[0].type.name}}">
                     <div class="card-lateral anima-esquerda text-center borda-{{fichaPokemon.types[0].type.name}}">
                         <div *ngIf="fichaPokemon.sprites.front_default; else semImagem">
