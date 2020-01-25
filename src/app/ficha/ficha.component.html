@@ -10,6 +10,11 @@
                               <div *ngFor="let item of listaPokemons">
                                   <option [value]="item.name"></option>
                               </div>
+                              <div>
+                                <option value="pikachu"></option>
+                                <option value="squirtle"></option>
+                                <option value="charmander"></option>
+                              </div>
                           </datalist>
                           <button type="button" class="botao ml-1 ml-sm-3" (click)="validaInputVazio()">Search Pokemon</button>
                           <small id="erroPokemon" class="form-text text-danger d-none">Digite algum nome de pokemon</small>
@@ -49,7 +54,7 @@
                             + MOVES
                             <div class="div-accordion ficha-inf d-none" id="moves">
                                 <hr class="hr">
-                                <div *ngFor="let move of fichaPokemon.moves; index as i">
+                                <div *ngFor="let move of fichaPokemon.moves.slice(0,5); index as i">
                                     <h5>Move {{i+1}}: <span class="inf-api">{{ move.move.name }}</span></h5>
                                 </div>
                             </div>
@@ -87,10 +92,10 @@
                     </div>
                 </div>
         </div>
-        <div class="row" *ngIf="!fichaPokemon" id="fichaPokemonNaoExiste">
+        <div class="row" *ngIf="fichaPokemon == 'erro'" id="fichaPokemonNaoExiste">
             <div class="card p-3 col-12">
-                <h4 class="h3 text-danger"> <span class="icon-erro">&#9762;</span> ERRO 404! <span class="icon-erro">&#9762;</span> </h4>
-                <h6 class="h5 text-muted">Pokemon não encontrado. Por favor verifique se o nome está correto.</h6>
+                <h4 class="h3 text-danger">Pokemon não encontrado!</h4>
+                <h6 class="h5 text-muted">Por favor verifique se o nome está correto e tente novamente.</h6>
             </div>
         </div>
     </div>

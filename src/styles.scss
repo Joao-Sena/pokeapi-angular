@@ -47,3 +47,34 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; background: #fafafa; }
     50%{  margin-left: 20px; opacity: 0.5; }
     100%{  margin-left: 0px; opacity: 1; }
 }
+
+
+
+// Criando cores de acordo com o tipo do pokemon assim, no DOM terá uma classe com o nome do tipo dele, e de acordo com esse nome irei adicionar uma cor
+.fire{ color: #fa4e4e; }
+.bug, .grass{ color: #43c455; }
+.water { color: #008bdb; }
+.electric{ color: #ffd900 }
+.psychic, .ghost, .poison{ color: #8700bd; }
+.fighting, .rock, .ground{ color: #a14215; }
+.dark{ color: #000000; }
+.steel{ color: #757575; }
+.fairy{ color: #ff6c84; }
+.normal{ color: #d6b982; }
+.flying{ color: #5a7bb8; }
+.ice{ color: #7092bd; }
+.dragon{ color: #ff7300; }
+
+.borda-fire{ border-left: 3px solid #fa4e4e; }
+.borda-bug, .borda-grass{ border-left: 3px solid #43c455; }
+.borda-water { border-left: 3px solid #008bdb; }
+.borda-electric{ border-left: 3px solid #ffee00 }
+.borda-psychic, .borda-ghost, .borda-poison{ border-left: 3px solid #8700bd; }
+.borda-fighting, .borda-rock, .borda-ground{ border-left: 3px solid #a14215; }
+.borda-dark{ border-left: 3px solid #000000; }
+.borda-steel{ border-left: 3px solid #757575; }
+.borda-fairy{ border-left: 3px solid #ff6c84; }
+.borda-normal{ border-left: 3px solid #d6b982; }
+.borda-flying{ border-left: 3px solid #5a7bb8; }
+.borda-ice{ border-left: 3px solid #7092bd; }
+.borda-dragon{ border-left: 3px solid #ff7300; }

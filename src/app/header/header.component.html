@@ -8,12 +8,17 @@
                           <div *ngFor="let item of listaPokemons">
                               <option [value]="item.name"></option>
                           </div>
+                          <div>
+                            <option value="pikachu"></option>
+                            <option value="squirtle"></option>
+                            <option value="charmander"></option>
+                          </div>
                       </datalist>
                       <button type="button" class="botao ml-1 ml-sm-3" (click)="consultarPokemon()">Search Pokemon</button>
                       <small id="erroPokemon" class="form-text text-danger d-none">Digite o nome de algum pokemon</small>
             </div>
             <div class="d-none d-md-block col-md-2 text-right">
-                <img src="../../assets/img/logo.png" alt="" height="85px">
+                <img src="../../assets/img/logo.png" alt="" height="80px">
             </div>
         </div>
     </div>

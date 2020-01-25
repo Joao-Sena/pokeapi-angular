@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GetNomesService } from '../get-nomes.service';
 
 @Component({
   selector: 'app-home',
@@ -10,22 +11,14 @@ export class HomeComponent implements OnInit {
 
   public listaPokemons: any;
 
-  constructor(private http: HttpClient) { this.listaPokemonsApi(); }
+  constructor(private http: HttpClient, protected getNomes: GetNomesService) { this.listaPokemonsApi(); }
 
   ngOnInit() { }
 
   listaPokemonsApi(){
 
-    const url: string = "https://pokeapi.co/api/v2/pokemon/?limit=1000";
-
-    this.http.get(url).subscribe( (response: any) =>{
-
-      this.listaPokemons = response.results;
-      localStorage.setItem('pokemons', JSON.stringify(this.listaPokemons));
-
-    }, (error: any) =>{
-      console.error(JSON.stringify(error));
-    } )
+    // UTILIZANDO O PRIMEIRO LINK DA API PARA LISTA O NOME DOS POKEMONS PARA UTILIZAR COMO SUGESTÃO NO INPUT(select);
+    this.getNomes.listaNomesPokemons();
 
   }
 

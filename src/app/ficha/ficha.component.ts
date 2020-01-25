@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input } from '@angular/core';
 // IMPORTAR, É O QUE FAZ IDENTIFICAR QUE A PÁGINA FOI ACESSADA ATRAVÉS DAS ROTAS DO .TYPESCRIPT, E IDENTIFICAR OS QUERYPARAMS
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ficha',
@@ -20,25 +20,42 @@ export class FichaComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((data)=>{
       this.nomePokemon = data.nomeFinal;
     })
-    this.listaFichaPokemon();
+    this.consultaPokemonHeader();
   }
 
   ngOnInit() { this.listaPokemons = JSON.parse(localStorage.getItem('pokemons')); }
 
-  async listaFichaPokemon(){
-
+  // LISTA A FICHA DO POKEMON QUANDO O USUÁRIO CLICOU NA PÁGINA HOME, pois é redirecionado para a página FICHA
+  consultaPokemonHeader(){ 
     const url: string = "https://pokeapi.co/api/v2/pokemon/" + this.nomePokemon;
     
     this.http.get(url).subscribe( (response: any) =>{
-      
+
       this.fichaPokemon = response;
 
     }, (error: any) =>{
-      // console.error(JSON.stringify(error));
-      this.fichaPokemon = null;
-      
-    })
 
+      this.fichaPokemon = 'erro';
+
+    })
+   }
+
+  // LISTA POKEMON quando o usuário já está na página ficha e não precisa ser redirecionado para a mesma
+  consultarPokemon(){
+    let pokemonEscolhido: string = (<HTMLInputElement>document.getElementById('pokemonEscolhido')).value;
+    let nomeFinal = pokemonEscolhido.toLowerCase();
+
+    const url: string = "https://pokeapi.co/api/v2/pokemon/" + nomeFinal;
+    
+    this.http.get(url).subscribe( (response: any) =>{
+
+      this.fichaPokemon = response;
+
+    }, (error: any) =>{
+
+      this.fichaPokemon = 'erro';
+
+    })
   }
 
   validaInputVazio(){
@@ -52,24 +69,6 @@ export class FichaComponent implements OnInit {
     }else{
       msgErro.classList.remove('d-none');
     }
-  }
-
-  consultarPokemon(){
-    let pokemonEscolhido: string = (<HTMLInputElement>document.getElementById('pokemonEscolhido')).value;
-    let nomeFinal = pokemonEscolhido.toLowerCase();
-
-    const url: string = "https://pokeapi.co/api/v2/pokemon/" + nomeFinal;
-
-    this.http.get(url).subscribe( (response: any) =>{
-      
-      this.fichaPokemon = response;
-
-    }, (error: any) =>{
-      // console.error(JSON.stringify(error));
-      // Apenas para não aparecer a DIV de ERRO, pois tem um *ngIf nela
-      this.fichaPokemon = null;
-    })
-
   }
 
   escondeExibeItem(id){
