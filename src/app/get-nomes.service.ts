@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,11 @@ export class GetNomesService {
 
   public listaPokemons: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,) { }
 
   listaNomesPokemons(){
 
-    const url: string = "https://pokeapi.co/api/v2/pokemon/?limit=1000";
+    const url: string = environment.base_url + "?limit=1000";
 
     this.http.get(url).subscribe( (response: any) =>{
 

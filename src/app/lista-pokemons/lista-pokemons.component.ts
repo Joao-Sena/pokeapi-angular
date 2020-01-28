@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// IMPORTAR PARA DIRECIONAR DE UMA PÁGINA PARA OUTRA
+
 import { Router } from '@angular/router';
+import { GetPokemonService } from '../get-pokemon.service';
 
 @Component({
   selector: 'app-lista-pokemons',
@@ -9,14 +10,21 @@ import { Router } from '@angular/router';
 })
 export class ListaPokemonsComponent implements OnInit {
 
-  constructor(public router: Router,) { }
+  constructor( public router: Router, protected getPokemon: GetPokemonService ) { }
 
   ngOnInit() {}
 
-  consultarPokemon(nomeFinal: string){
-    
-      this.router.navigate(['ficha'], {queryParams: {nomeFinal}});
+  consultaPokemon(nomePokemon: string){
+    let getFichaPokemon: any = this.getPokemon.getPokemonHome(nomePokemon);
+      getFichaPokemon.subscribe((response: any) => {
 
+        localStorage.setItem('fichaPokemon', JSON.stringify(response));
+        this.router.navigate(['ficha']);
+
+      }, (error: any) =>{ 
+        localStorage.setItem('fichaPokemon', JSON.stringify('erro') ); 
+        this.router.navigate(['ficha']);
+      });
   }
 
 }
