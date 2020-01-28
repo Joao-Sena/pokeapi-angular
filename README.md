@@ -1,3 +1,12 @@
+# Prints do APP
+
+<span>
+  <img src="https://raw.githubusercontent.com/Joao-Sena/pokeapi-angular/master/src/assets/img/home-desktop.PNG" width="48%">
+</span>
+<span>
+  <img src="https://raw.githubusercontent.com/Joao-Sena/pokeapi-angular/master/src/assets/img/ficha-desktop.PNG" width="48%">
+</span>
+
 # Pokemons
 
 Este projeto Angular é uma criação rápida de uma POKEDEX utilizando a POKEAPI. Possui uma página inicial com alguns pokemons de exemplo para clicar e consultar as informações deles, e também possui uma barra de busca para pesquiser pelo pokemon que você desejar. Essa barra de busca já da sugestões de todos os nomes dos pokemons existentes conforme você vai digitando.
