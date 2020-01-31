@@ -7,7 +7,7 @@
   <img src="https://raw.githubusercontent.com/Joao-Sena/pokeapi-angular/master/src/assets/img/ficha-desktop.PNG" width="48%">
 </span>
 
-# Pokemons
+# Descrição
 
 Este projeto Angular é uma criação rápida de uma POKEDEX utilizando a POKEAPI. Possui uma página inicial com alguns pokemons de exemplo para clicar e consultar as informações deles, e também possui uma barra de busca para pesquiser pelo pokemon que você desejar. Essa barra de busca já da sugestões de todos os nomes dos pokemons existentes conforme você vai digitando.
 
@@ -16,26 +16,8 @@ https://angular-pokedex-host.firebaseapp.com/home
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Utilização
+1º - Clone ou baixe o repositório.
+2º - Abra o terminal e execute: "npm install"
+3º - Execute: "ng serve"
+4º - Projeto rodando
