@@ -22,13 +22,11 @@ export class FichaComponent implements OnInit {
     );
    }
 
-  // QUANDO O USUÁRIO VEM DA PÁGINA HOME
   getFichaPokemon(){ 
     this.fichaPokemon = JSON.parse(localStorage.getItem('fichaPokemon'));
    }
 
   escondeExibeItem(id: any){
-    // Criação de uma accordionList porém na mão apenas utilizando D-NONE para exibir ou esconder de acordo com o (click)
     let divInformacoes = (<HTMLElement>document.getElementById(id));
     divInformacoes.classList.toggle('d-none');
   }

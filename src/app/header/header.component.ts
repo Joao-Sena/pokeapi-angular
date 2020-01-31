@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   constructor( 
     public router: Router, 
     protected getPokemon: GetPokemonService,
-    protected getNomes: GetNomesService
+    protected getNomes: GetNomesService,
     ) { this.getNomes.listaNomesPokemons(); }
 
   ngOnInit() { this.listaPokemons = JSON.parse(localStorage.getItem('pokemons')); }
