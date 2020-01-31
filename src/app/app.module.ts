@@ -3,30 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ListaPokemonsComponent } from './lista-pokemons/lista-pokemons.component';
-import { FichaComponent } from './ficha/ficha.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { FichaComponent } from './ficha/ficha.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ListaPokemonsComponent } from './lista-pokemons/lista-pokemons.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    FichaComponent,
     HeaderComponent,
     FooterComponent,
-    ListaPokemonsComponent,
-    FichaComponent
+    ListaPokemonsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
